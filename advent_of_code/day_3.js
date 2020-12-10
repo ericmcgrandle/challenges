@@ -1,14 +1,14 @@
-const validatePath = (path) => {
+const validatePath = (path, right, down) => {
 
   let numHitTrees = 0;
-  let j = -3;
+  let j = (0 - right);
 
-  for (let i = 0; i < path.length; i++) {
+  for (let i = 0; i < path.length; i += down) {
     // Start point i = 0, j = 0
-    if (j + 3 >= path[i][0].length) {
-      j -= 28
+    if (j + right >= path[i][0].length) {
+      j -= (31 - right)
     } else {
-      j += 3;
+      j += right;
     }
 
     if (path[i][0][j] === '#') {
@@ -346,4 +346,4 @@ const path =
   ['#....#....#................#...'], 
 ]
 
-console.log(validatePath(path));
+console.log(validatePath(path, 1, 2));
